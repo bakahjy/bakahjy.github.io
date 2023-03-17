@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test copy clipboard</title>
+</head>
+<body>
+    <p>刘教授天下无敌</p>
+
+    <script>
+        document.addEventListener('copy', e => {
+            console.log(e, window.getSelection().toString());
+            e.preventDefault()
+            e.clipboardData.setData('text/plain', `${window.getSelection().toString()}\n来自何汪汪的文章${window.location}`);
+        })
+    </script>
+</body>
+</html>
